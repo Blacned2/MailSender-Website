@@ -1,0 +1,317 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = "_Layout";
+}
+<div class="area-padding" style="background-color:ghostwhite">
+    <div>
+        <div class="container mt-5 g-0 p-0">
+            <div class="row justify-content-center">
+                <div class="col-md-7"> 
+                    <div class="row">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-pause="hover" data-ride="carousel">
+                            <ol class="carousel-indicators mb-5">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <iframe style="width:100%;height:400px" src="https://www.youtube.com/embed/2mlugW9L3zQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="carousel-item">
+                                    <iframe style="width:100%;height:400px" src="https://www.youtube.com/embed/2mlugW9L3zQ" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="carousel-item">
+                                    <iframe style="width:100%;height:400px" src="https://www.youtube.com/embed/2mlugW9L3zQ" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <!-- TODO Fetch from db-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="juries">
+                        <h1 class="h1-text mb-4">
+                            <i class="fa fa-users" aria-hidden="true"></i>Jüriler
+                        </h1>
+                        <div class="Acontainer">
+                            @foreach (var obj in ViewBag.JuryList)
+                            {
+                                <div class="box">
+                                    <div class="top-bar"></div>
+                                    <div class="top">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        <input type="checkbox" class="heart-btn" id="heart-btn-4">
+                                        <label class="heart" for="heart-btn-4"></label>
+                                    </div>
+                                    <div class="content">
+                                        <img src=https://images.pexels.com/photos/1689731/pexels-photo-1689731.jpeg?auto>
+                                        <strong>@obj.JuryName @obj.JurySurname </strong>
+                                        <p>:)</p>
+                                    </div>
+                                    <div class="btn mt-2">
+                                        <a href="#"><i class="fa fa-clipboard" aria-hidden="true"></i> Assign</a> -
+                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div> 
+                    <div class="row" id="schools">
+                        <h1 class="h1-text mb-4">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>Okullar
+                        </h1>
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                @for (int i = 1; i < 11; i++)
+                                {
+                                    <div class="col-sm-2 text-center">
+                                        <img src="@Url.Content($"/img/logo/{i}.png")" width="120" height="120" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5"> 
+                    <div class="form contact-form card p-2">
+                        <form method="post" asp-action="index" asp-controller="home" role="form" oninvalid=""> 
+                            <div class="card-body p-md-4">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 order-2 order-lg-1">
+                                        <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-12 mt-2">Basvuru</p>
+                                        <div class="mx-1 mx-md-8">
+                                            <p>@ViewBag.Error</p>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-user fa-lg me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 me-1 p-0 g-0">
+                                                    <input type="text" name="PersonName" class="form-control bg-light" id="name" required>
+                                                    <label class="form-label" for="PersonName">Adınız</label>
+                                                </div>
+                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 p-0 g-0">
+                                                    <input type="text" name="PersonSurname" class="form-control bg-light" id="name" required>
+                                                    <label class="form-label" for="PersonSurname">Soyadınız</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fa fa-globe me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input type="text" class="form-control bg-light" name="Nationality" id="nationality" required>
+                                                    <label class="form-label" for="Nationality">Uyruk</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fa fa-venus-mars me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 p-0 g-0">
+                                                    <select id="Gender" name="Gender" class="form-select bg-light" required>
+                                                        <option value="" disabled selected="selected">Seçiniz</option>
+                                                        <option value="true">Kadın</option>
+                                                        <option value="false">Erkek</option>
+                                                    </select>
+                                                    <label class="form-label" for="GraduateStatusID">Cinsiyetiniz</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-envelope fa-lg me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input type="email" class="form-control bg-light" name="Email" id="Email" required>
+                                                    <label class="form-label" for="Email">Email Adresiniz</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4 mb-4">
+                                                <i class="fas fa-school fa-lg me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input type="text" class="form-control bg-light" name="SchoolName" id="SchoolName" required />
+                                                    <label class="form-label" for="SchoolName">Okulunuz</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-graduation-cap fa-lg me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 g-0 p-0 me-1">
+                                                    <select id="GraduateStatusID" name="GraduateStatusID" class="form-select bg-light" required>
+                                                        <option value="" disabled selected="selected">Seçiniz</option>
+                                                        @foreach (var obj in ViewBag.GraduateStatus)
+                                                        {
+                                                            <option value="@obj.GraduateStatusID">@obj.Status</option>
+                                                        }
+                                                    </select>
+                                                    <label class="form-label" for="GraduateStatusID">Mezuniyet Durumunuz</label>
+                                                </div>
+                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 g-0 p-0">
+                                                    <input type="date" class="form-control bg-light" name="GraduateYear" id="GraduateYear">
+                                                    <label class="form-label" for="GraduateYear">Mezuniyet Tarihiniz</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4 mb-4">
+                                                <i class="fab fa-creative-commons-sampling-plus fa-lg me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input class="form-control bg-light" name="CreationVideoPath" type="file" id="formFile">
+                                                    <label class="form-label" for="CreationVideoPath">Kreasyon Videosu Yükle</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4 mb-4">
+                                                <i class="fab fa-creative-commons-sampling fa-lg me-3 fa-fw mb-4"></i>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input class="form-control bg-light" name="ShowRealVideoPath" type="file" id="formFile">
+                                                    <label class="form-label" for="ShowRealVideoPath">Showreel Videosu Yükle</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <button type="submit" class="btn btn-primary btn-lg">Gönder</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                             class="img-fluid" alt="Sample image">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+
+        .h1-text {
+            font-size: 1.3rem;
+            margin: 40px 0;
+            color: #2c2c2c;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .h1-text i {
+                background-color: #509bfc;
+                color: #fff;
+                width: 40px;
+                height: 40px;
+                box-shadow: 2px 5px 30px rgba(80, 123, 252, 0.4);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1rem;
+                margin: 0 20px;
+            }
+
+        .Acontainer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+
+        .box {
+            position: relative;
+            min-width: 200px;
+            background-color: #fff;
+            box-shadow: 2px 3px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            margin: 5px;
+            position: relative;
+            border-radius: 10px;
+        }
+
+
+        .top-bar {
+            width: 50%;
+            height: 4px;
+            background: #507bfc;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .fa-check-circle {
+            color: #17b667;
+        }
+
+        /* creating heart */
+        .heart {
+            color: rgba(155,155,155);
+        }
+
+            .heart::before {
+                content: '\f004';
+                font-family: fontawesome;
+                line-height: 30px;
+                cursor: pointer;
+                z-index: 1;
+                transition: all 0.3s;
+            }
+
+        .box .heart-btn:checked ~ .heart::before {
+            color: #e41934
+        }
+
+        .heart-btn {
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            padding: 1rem;
+            display: none;
+        }
+
+
+        .content img {
+            width: 90px;
+            height: 90px;
+            border-radius: 100px;
+            overflow: hidden;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .content strong {
+                font-weight: 500;
+                color: #141414;
+                margin-top: 10px;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+                color: #7a7a7a;
+                margin: 4px 0px 10px 0px;
+                cursor: pointer;
+            }
+
+                .content p:hover {
+                    text-decoration: underline;
+                }
+    </style>
+}

@@ -1,0 +1,164 @@
+﻿@using Side.Website.Helpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Samet Kostak</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Vendor-->
+    <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/7f7df55bc8.js" crossorigin="anonymous"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="d-flex justify-content-between flex-column">
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex justify-content-between">
+
+                <div class="logo">
+                    <h1><a asp-action="Index"><span>Test</span>Edelim</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html"><img src="/img/logo.png" alt="" class="img-fluid"></a>-->
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto" href="#">Anasayfa</a></li>
+                        <li><a class="nav-link scrollto" href="#schools">Okullar</a></li>
+                        <li><a class="nav-link scrollto" href="#juries">Jüriler</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">İletişim</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+
+            </div>
+        </header>
+
+        <main id="main">
+            @RenderBody()
+        </main>
+
+        <footer>
+            <div class="footer-area" id="contact" style="background-color:white!important">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="footer-content">
+                                <div class="footer-head">
+                                    <div class="footer-logo d-flex">
+                                        <img src="~/img/logo/footer-a.png" width="200" height="200" />
+                                    </div>
+
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                                    <div class="footer-icons">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="bi bi-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single footer -->
+                        <div class="col-md-4">
+                            <div class="footer-content">
+                                <div class="footer-head">
+                                    <h5>Bilgiler</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <div class="footer-contacts">
+                                        <p><span>Tel:</span> +123 456 789</p>
+                                        <p><span>Email:</span> contact@example.com</p>
+                                        <p><span>Çalışma Saatleri:</span> 9am-5pm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- end single footer -->
+                        <div class="col-md-4">
+                            <div class="footer-content">
+                                <div class="footer-head">
+                                    <h4>Instagram</h4>
+                                    <div class="flicker-img">
+                                        <a href="#"><img src="/img/portfolio/1.jpg" alt=""></a>
+                                        <a href="#"><img src="/img/portfolio/2.jpg" alt=""></a>
+                                        <a href="#"><img src="/img/portfolio/3.jpg" alt=""></a>
+                                        <a href="#"><img src="/img/portfolio/4.jpg" alt=""></a>
+                                        <a href="#"><img src="/img/portfolio/5.jpg" alt=""></a>
+                                        <a href="#"><img src="/img/portfolio/6.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="copyright text-center">
+                                <p>
+                                    &copy; Copyright <strong>fff1</strong>. Tüm Haklar Saklıdır.
+                                </p>
+                            </div>
+                            <div class="credits">
+                                Designed by <a href="">Samet Kostak</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- End  Footer -->
+    </div>
+
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!--Vendor Scripts-->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Styles", required: false)
+</body>
+</html>
