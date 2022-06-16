@@ -4,30 +4,260 @@
 @{
     Layout = "_Layout";
 }
-<div class="area-padding" style="background-color:ghostwhite">
+<div class="area-padding" style="padding-top:100px">
+    
+    <section class="u-align-center u-clearfix u-grey-10 u-section-1">
+        <div class="u-clearfix u-sheet u-sheet-1" >
+            <div class="row justify-content-center">
+                <h2 class="u-text u-text-default u-text-1" style="text-align:center">
+                    Videolar<br>
+                </h2>
+                <div class="Acontainer">
+                    @foreach (var obj in ViewBag.ShowReelVideoPaths)
+                    {
+                        <div class="col-md-3 card p-1 bg-dark m-1 roberta">
+                            <iframe style="width:100%;height:240px" src="@Url.Content($"https://www.youtube.com/embed/{obj}")" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="u-align-center u-clearfix u-grey-10 u-section-2" id="sec-6f2c">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h2 class="u-text u-text-default u-text-1">
+                Jüriler<br>
+            </h2>
+            <p class="u-text u-text-2">
+                Sample text. Lorem ipsum dolor sit amet, consectetur <a href="#" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">adipiscing elit nullam</a> nunc justo sagittis suscipit ultrices.
+            </p>
+            <div class="u-expanded-width u-list u-list-1">
+                <div class="u-repeater u-repeater-1">
+                    @foreach (var obj in ViewBag.JuryList)
+                    {
+                        <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                                @if (obj.Gender == true)
+                                {
+                                    <div alt="" class="u-image u-image-circle u-image-3" src="" data-image-width="500" data-image-height="500"></div>
+                                }
+                                @if (obj.Gender == false)
+                                {
+                                    <div alt="" class="u-image u-image-circle u-image-1" src="" data-image-width="500" data-image-height="500"></div>
+                                }
+                                <h5 class="u-text u-text-7">@obj.JuryName @obj.JurySurname</h5>
+                                <p class="u-text u-text-8">@obj.JuryTitle</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="u-align-center u-clearfix u-section-3" id="sec-eed1">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h2 class="u-text u-text-default u-text-1">Okullar &amp; Üniversiteler</h2>
+            <div class="u-expanded-width u-list u-list-1">
+                <div class="u-repeater u-repeater-1">
+
+                    @for (int i = 1; i < 11; i++)
+                    {
+                        <div class="u-container-style u-list-item u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                                <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-1" width="120" height="120" src="@Url.Content($"/img/logo/{i}.png")">
+                            </div>
+                        </div>
+                    }
+                    @*<div class="u-container-style u-list-item u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                                <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-1" data-image-width="500" data-image-height="135" src="images/5.svg">
+                            </div>
+                        </div>
+                        <div class="u-container-style u-list-item u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
+                                <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-2" data-image-width="500" data-image-height="175" src="images/6.svg">
+                            </div>
+                        </div>
+                        <div class="u-container-style u-list-item u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
+                                <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-3" data-image-width="500" data-image-height="135" src="images/7.svg">
+                            </div>
+                        </div>
+                        <div class="u-container-style u-list-item u-repeater-item">
+                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
+                                <img alt="" class="u-expanded-width-xs u-image u-image-contain u-image-default u-image-4" data-image-width="420" data-image-height="135" src="images/8.svg">
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class=" u-clearfix u-grey-5 u-section-4" id="sec-a25a">
+        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <h1 class="u-text u-text-default u-text-1">Başvuru</h1>
+            <div class="u-form u-form-1">
+                @*<form action="#" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
+                        <div class="u-form-group u-form-name u-label-none">
+                            <label for="name-3b9a" class="u-label">Name</label>
+                            <input type="text" placeholder="Enter your Name" id="name-3b9a" name="name" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" required="">
+                        </div>
+                        <div class="u-form-email u-form-group u-label-none">
+                            <label for="email-3b9a" class="u-label">Email</label>
+                            <input type="email" placeholder="Enter a valid email address" id="email-3b9a" name="email" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-2" required="">
+                        </div>
+                        <div class="u-form-group u-form-message u-label-none">
+                            <label for="message-3b9a" class="u-label">Message</label>
+                            <textarea placeholder="Enter your message" rows="4" cols="50" id="message-3b9a" name="message" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-3" required=""></textarea>
+                        </div>
+                        <div class="u-align-center u-form-group u-form-submit">
+                            <a href="#" class="u-border-2 u-border-black u-btn u-btn-rectangle u-btn-submit u-button-style u-none u-btn-1">Submit</a>
+                            <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                        <input type="hidden" value="" name="recaptchaResponse">
+                    </form>*@
+                <form method="post" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" asp-action="index" asp-controller="home" role="form" oninvalid="">
+                    <div class="card-body p-md-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 order-2 order-lg-1">
+                                <div class="mx-1 mx-md-8">
+                                    <p>@ViewBag.Error</p>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0 col-md-6 m-0 me-1 p-0 g-0">
+                                            <input type="text" name="PersonName" class="form-control bg-light" id="name" required>
+                                            <label class="form-label" for="PersonName">Adınız</label>
+                                        </div>
+                                        <div class="form-outline flex-fill mb-0 col-md-6 m-0 p-0 g-0">
+                                            <input type="text" name="PersonSurname" class="form-control bg-light" id="name" required>
+                                            <label class="form-label" for="PersonSurname">Soyadınız</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-globe me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control bg-light" name="Nationality" id="nationality" required>
+                                            <label class="form-label" for="Nationality">Uyruk</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-venus-mars me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0 col-md-6 m-0 p-0 g-0">
+                                            <select id="Gender" name="Gender" class="form-select bg-light" required>
+                                                <option value="" disabled selected="selected">Seçiniz</option>
+                                                <option value="true">Kadın</option>
+                                                <option value="false">Erkek</option>
+                                            </select>
+                                            <label class="form-label" for="GraduateStatusID">Cinsiyetiniz</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" class="form-control bg-light" name="Email" id="Email" required>
+                                            <label class="form-label" for="Email">Email Adresiniz</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4 mb-4">
+                                        <i class="fas fa-school fa-lg me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control bg-light" name="SchoolName" id="SchoolName" required />
+                                            <label class="form-label" for="SchoolName">Okulunuz</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-graduation-cap fa-lg me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0 col-md-6 m-0 g-0 p-0 me-1">
+                                            <select id="GraduateStatusID" name="GraduateStatusID" class="form-select bg-light" required>
+                                                <option value="" disabled selected="selected">Seçiniz</option>
+                                                @foreach (var obj in ViewBag.GraduateStatus)
+                                                {
+                                                    <option value="@obj.GraduateStatusID">@obj.Status</option>
+                                                }
+                                            </select>
+                                            <label class="form-label" for="GraduateStatusID">Mezuniyet Durumunuz</label>
+                                        </div>
+                                        <div class="form-outline flex-fill mb-0 col-md-6 m-0 g-0 p-0">
+                                            <input type="date" class="form-control bg-light" name="GraduateYear" id="GraduateYear">
+                                            <label class="form-label" for="GraduateYear">Mezuniyet Tarihiniz</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4 mb-4">
+                                        <i class="fab fa-creative-commons-sampling-plus fa-lg me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input class="form-control bg-light" name="CreationVideoPath" type="file" id="formFile">
+                                            <label class="form-label" for="CreationVideoPath">Kreasyon Videosu Yükle</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4 mb-4">
+                                        <i class="fab fa-creative-commons-sampling fa-lg me-3 fa-fw mb-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input class="form-control bg-light" name="ShowRealVideoPath" type="text" id="ShowRealVideoPath" placeholder="https://www.youtube.com/watch?v=zxsW8Rq8TsU">
+                                            <label class="form-label" for="ShowRealVideoPath">Showreel Videosu Yükle</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Gönder</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                     class="img-fluid" alt="Sample image">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--<div class="area-padding" style="background-color:ghostwhite">
     <div>
         <div class="container mt-5 g-0 p-0">
-            <div class="row justify-content-center">
-                <div class="col-md-7"> 
-                    <div class="row">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-pause="hover" data-ride="carousel">
-                            <ol class="carousel-indicators mb-5">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <iframe style="width:100%;height:400px" src="https://www.youtube.com/embed/2mlugW9L3zQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row" id="showreel-videos">
+                        <h1 class="h1-text mb-4">
+                            <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
+                                Hemen Basvur !
+                            </button>
+                        </h1>-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<!--<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Basvuru</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <iframe style="width:100%;height:400px" src="https://www.youtube.com/embed/2mlugW9L3zQ" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="carousel-item">
-                                    <iframe style="width:100%;height:400px" src="https://www.youtube.com/embed/2mlugW9L3zQ" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <!-- TODO Fetch from db-->
                             </div>
+                        </div>
+
+                        <h1 class="h1-text mb-4">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>Videolarınız
+                        </h1>
+                        <div class="Acontainer">
+                            @foreach (var obj in ViewBag.ShowReelVideoPaths)
+                            {
+                                <div class="col-md-3 card p-1 bg-dark m-1 roberta">
+                                    <iframe style="width:100%;height:240px" src="@Url.Content($"https://www.youtube.com/embed/{obj}")" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="row" id="juries">
@@ -56,7 +286,7 @@
                                 </div>
                             }
                         </div>
-                    </div> 
+                    </div>
                     <div class="row" id="schools">
                         <h1 class="h1-text mb-4">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>Okullar
@@ -73,112 +303,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5"> 
-                    <div class="form contact-form card p-2">
-                        <form method="post" asp-action="index" asp-controller="home" role="form" oninvalid=""> 
-                            <div class="card-body p-md-4">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-12 order-2 order-lg-1">
-                                        <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-12 mt-2">Basvuru</p>
-                                        <div class="mx-1 mx-md-8">
-                                            <p>@ViewBag.Error</p>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 me-1 p-0 g-0">
-                                                    <input type="text" name="PersonName" class="form-control bg-light" id="name" required>
-                                                    <label class="form-label" for="PersonName">Adınız</label>
-                                                </div>
-                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 p-0 g-0">
-                                                    <input type="text" name="PersonSurname" class="form-control bg-light" id="name" required>
-                                                    <label class="form-label" for="PersonSurname">Soyadınız</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fa fa-globe me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" class="form-control bg-light" name="Nationality" id="nationality" required>
-                                                    <label class="form-label" for="Nationality">Uyruk</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fa fa-venus-mars me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 p-0 g-0">
-                                                    <select id="Gender" name="Gender" class="form-select bg-light" required>
-                                                        <option value="" disabled selected="selected">Seçiniz</option>
-                                                        <option value="true">Kadın</option>
-                                                        <option value="false">Erkek</option>
-                                                    </select>
-                                                    <label class="form-label" for="GraduateStatusID">Cinsiyetiniz</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-envelope fa-lg me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="email" class="form-control bg-light" name="Email" id="Email" required>
-                                                    <label class="form-label" for="Email">Email Adresiniz</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4 mb-4">
-                                                <i class="fas fa-school fa-lg me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" class="form-control bg-light" name="SchoolName" id="SchoolName" required />
-                                                    <label class="form-label" for="SchoolName">Okulunuz</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-graduation-cap fa-lg me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 g-0 p-0 me-1">
-                                                    <select id="GraduateStatusID" name="GraduateStatusID" class="form-select bg-light" required>
-                                                        <option value="" disabled selected="selected">Seçiniz</option>
-                                                        @foreach (var obj in ViewBag.GraduateStatus)
-                                                        {
-                                                            <option value="@obj.GraduateStatusID">@obj.Status</option>
-                                                        }
-                                                    </select>
-                                                    <label class="form-label" for="GraduateStatusID">Mezuniyet Durumunuz</label>
-                                                </div>
-                                                <div class="form-outline flex-fill mb-0 col-md-6 m-0 g-0 p-0">
-                                                    <input type="date" class="form-control bg-light" name="GraduateYear" id="GraduateYear">
-                                                    <label class="form-label" for="GraduateYear">Mezuniyet Tarihiniz</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4 mb-4">
-                                                <i class="fab fa-creative-commons-sampling-plus fa-lg me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input class="form-control bg-light" name="CreationVideoPath" type="file" id="formFile">
-                                                    <label class="form-label" for="CreationVideoPath">Kreasyon Videosu Yükle</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4 mb-4">
-                                                <i class="fab fa-creative-commons-sampling fa-lg me-3 fa-fw mb-4"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input class="form-control bg-light" name="ShowRealVideoPath" type="file" id="formFile">
-                                                    <label class="form-label" for="ShowRealVideoPath">Showreel Videosu Yükle</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" class="btn btn-primary btn-lg">Gönder</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                                             class="img-fluid" alt="Sample image">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
-            
+
 
         </div>
     </div>
-</div>
+</div>-->
 
 @section Styles {
     <style>
+        .roberta {
+            background-color: black;
+        }
+
+            .roberta:hover {
+            }
+
         a {
             text-decoration: none;
         }

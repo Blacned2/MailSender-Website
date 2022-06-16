@@ -12,6 +12,8 @@ namespace Side.Website.Models
         public int JuryID { get; set; }
         public string JuryName { get; set; }
         public string JurySurname { get; set; }
-        public string JuryPhoto { get; set; } 
+        public string JuryPhoto { get; set; }
+        public string JuryTitle { get; set; }
+        public bool Gender { get; set; }
     }
 }

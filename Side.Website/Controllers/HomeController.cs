@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Side.Website.Context;
 using Side.Website.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -25,8 +26,17 @@ namespace Side.Website.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var persons = DB.Persons.ToList();
+            List<string> ShowReelVideoPath = new List<string>();
+            for(int i = 0;i < persons.Count(); i++)
+            {
+                ShowReelVideoPath.Add(persons[i].ShowRealVideoPath);
+                var array = ShowReelVideoPath[i].Split("=");
+                ShowReelVideoPath[i] = array[1];
+            }
             ViewBag.GraduateStatus = DB.GraduateStatuses.ToList();
             ViewBag.JuryList = DB.Juries.ToList();
+            ViewBag.ShowReelVideoPaths = ShowReelVideoPath;
             return View();
         }
 
